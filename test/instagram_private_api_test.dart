@@ -5,6 +5,7 @@ import 'dart:io';
 import 'package:image/image.dart';
 import 'package:instagram_private_api/instagram_private_api.dart';
 import 'package:instagram_private_api/src/core/insta_state.dart';
+import 'package:instagram_private_api/src/responses/direct/get_presence_response.dart';
 import 'package:instagram_private_api/src/types/stickers/chat_sticker.dart';
 import 'package:instagram_private_api/src/types/stickers/countdown_sticker.dart';
 import 'package:instagram_private_api/src/types/stickers/hashtag_sticker.dart';
@@ -44,6 +45,7 @@ Future<void> main() async {
 
   try {
     //for testing
+
   } catch (e) {
     print(e);
   }

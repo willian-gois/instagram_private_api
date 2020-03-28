@@ -8,6 +8,8 @@ class JsonToClass {
   static Type mapType = <dynamic, dynamic>{}.runtimeType;
   static Type mapJsonType = <String, dynamic>{}.runtimeType;
 
+  static RegExp numericRegexp = RegExp('([0-9])');
+
   static List<String> protectedKeywords =
       // ignore: lines_longer_than_80_chars
       'abstract dynamic implements show as else import static assert enum in super async export interface switch await extends is sync break external library this case factory mixin throw catch false new true class final null try const finally on typedef continue for operator var covariant part void default get rethrow while deferred hide return with do if set yield'
@@ -107,7 +109,7 @@ class JsonToClass {
           outer:
           for (final key in keys) {
             final List elements =
-                item.where((x) => x.containsKey(key) as bool).toList();
+                item.where((x) => x.containsKey(key)).toList();
             final elementType = elements[0].runtimeType;
             for (final element in elements) {
               if (elementType != element.runtimeType) {
@@ -130,18 +132,28 @@ class JsonToClass {
       throw Exception('Invalid Type: $level');
     }
     if (runtimeType == mapType || runtimeType == mapJsonType) {
-      final JsonObject object = JsonObject(level);
-      item.forEach((key, value) {
-        object.keys.add(JsonKey(CaseConvert.camelCase(key),
-            _mapItem(value, '$level${CaseConvert.pascalCase(key)}')));
-      });
-      _objects.add(object);
+      /// check invalid keys
+      if(item.keys.any((x) => numericRegexp.hasMatch(x))){
+        String mappedKey = _mapItem(item.values.toList(), '${level}Map');
+        if(mappedKey.contains('<')){
+          mappedKey = mappedKey.substring(5, mappedKey.length - 1);
+        }
+        return 'Map<String, $mappedKey>';
+      } else {
+        /// all keys are fine
+        final JsonObject object = JsonObject(level);
+        item.forEach((key, value) {
+          object.keys.add(JsonKey(CaseConvert.camelCase(key),
+              _mapItem(value, '$level${CaseConvert.pascalCase(key)}')));
+        });
+        _objects.add(object);
+      }
       return level;
     }
     throw Exception('Unknown type: ${item.runtimeType}');
   }
 
-  static bool footType(item) =>
+  static bool footType(dynamic item) =>
       item == null ||
       item.runtimeType == null ||
       item.runtimeType == String ||
