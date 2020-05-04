@@ -23,7 +23,7 @@ Future<Map<String, dynamic>> createResponse(
   }
   await resFile.writeAsString(createdClass);
 
-  final result = await Process.run('pub.bat run build_runner build', [],
+  final result = await Process.run('pub run build_runner build', [],
       workingDirectory: rootDir);
   if (result.exitCode != 0) {
     throw Exception('Failed running pub: ${result.exitCode}');
