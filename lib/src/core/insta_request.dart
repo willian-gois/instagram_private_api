@@ -84,7 +84,6 @@ class InstaRequest {
         'X-IG-Connection-Type': _client.state.connectionType,
         'X-IG-Capabilities': _client.state.capabilities,
         'X-IG-App-ID': _client.state.facebookAnalyticsAppId,
-        'X-IG-VP9-Capable': true,
         'X-FB-HTTP-Engine': 'Liger',
         'Accept-Language': _client.state.language.replaceFirst('_', '-'),
         'Host': 'i.instagram.com',
