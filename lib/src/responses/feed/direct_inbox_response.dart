@@ -50,7 +50,7 @@ class DirectInboxFeedResponseMostRecentInviter {
   DirectInboxFeedResponseMostRecentInviter();
 
   factory DirectInboxFeedResponseMostRecentInviter.fromJson(
-          Map<String, dynamic> json) =>
+      Map<String, dynamic> json) =>
       _$DirectInboxFeedResponseMostRecentInviterFromJson(json);
 
   Map<String, dynamic> toJson() =>
@@ -93,7 +93,7 @@ class DirectInboxFeedResponseThreadsItem {
   DirectInboxFeedResponseThreadsItem();
 
   factory DirectInboxFeedResponseThreadsItem.fromJson(
-          Map<String, dynamic> json) =>
+      Map<String, dynamic> json) =>
       _$DirectInboxFeedResponseThreadsItemFromJson(json);
 
   Map<String, dynamic> toJson() =>
@@ -116,7 +116,7 @@ class DirectInboxFeedResponseUsersItem {
   DirectInboxFeedResponseUsersItem();
 
   factory DirectInboxFeedResponseUsersItem.fromJson(
-          Map<String, dynamic> json) =>
+      Map<String, dynamic> json) =>
       _$DirectInboxFeedResponseUsersItemFromJson(json);
 
   Map<String, dynamic> toJson() =>
@@ -139,7 +139,7 @@ class DirectInboxFeedResponseItemsItem {
   DirectInboxFeedResponseItemsItem();
 
   factory DirectInboxFeedResponseItemsItem.fromJson(
-          Map<String, dynamic> json) =>
+      Map<String, dynamic> json) =>
       _$DirectInboxFeedResponseItemsItemFromJson(json);
 
   Map<String, dynamic> toJson() =>
@@ -183,7 +183,7 @@ class DirectInboxFeedResponseLastPermanentItem {
   DirectInboxFeedResponseLastPermanentItem();
 
   factory DirectInboxFeedResponseLastPermanentItem.fromJson(
-          Map<String, dynamic> json) =>
+      Map<String, dynamic> json) =>
       _$DirectInboxFeedResponseLastPermanentItemFromJson(json);
 
   Map<String, dynamic> toJson() =>
@@ -202,7 +202,7 @@ class DirectInboxFeedResponseFriendshipStatus {
   DirectInboxFeedResponseFriendshipStatus();
 
   factory DirectInboxFeedResponseFriendshipStatus.fromJson(
-          Map<String, dynamic> json) =>
+      Map<String, dynamic> json) =>
       _$DirectInboxFeedResponseFriendshipStatusFromJson(json);
 
   Map<String, dynamic> toJson() =>
@@ -236,7 +236,7 @@ class DirectInboxFeedResponseReelShare {
   DirectInboxFeedResponseReelShare();
 
   factory DirectInboxFeedResponseReelShare.fromJson(
-          Map<String, dynamic> json) =>
+      Map<String, dynamic> json) =>
       _$DirectInboxFeedResponseReelShareFromJson(json);
 
   Map<String, dynamic> toJson() =>
@@ -271,7 +271,7 @@ class DirectInboxFeedResponsePlaceholder {
   DirectInboxFeedResponsePlaceholder();
 
   factory DirectInboxFeedResponsePlaceholder.fromJson(
-          Map<String, dynamic> json) =>
+      Map<String, dynamic> json) =>
       _$DirectInboxFeedResponsePlaceholderFromJson(json);
 
   Map<String, dynamic> toJson() =>
@@ -288,7 +288,7 @@ class DirectInboxFeedResponseLinkContext {
   DirectInboxFeedResponseLinkContext();
 
   factory DirectInboxFeedResponseLinkContext.fromJson(
-          Map<String, dynamic> json) =>
+      Map<String, dynamic> json) =>
       _$DirectInboxFeedResponseLinkContextFromJson(json);
 
   Map<String, dynamic> toJson() =>

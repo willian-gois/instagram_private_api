@@ -12,19 +12,19 @@ FeedDirectInboxResponse _$FeedDirectInboxResponseFromJson(
     ..inbox = json['inbox'] == null
         ? null
         : DirectInboxFeedResponseInbox.fromJson(
-            json['inbox'] as Map<String, dynamic>)
+        json['inbox'] as Map<String, dynamic>)
     ..seqId = json['seq_id'] as int
     ..snapshotAtMs = json['snapshot_at_ms'] as num
     ..pendingRequestsTotal = json['pending_requests_total'] as int
     ..mostRecentInviter = json['most_recent_inviter'] == null
         ? null
         : DirectInboxFeedResponseMostRecentInviter.fromJson(
-            json['most_recent_inviter'] as Map<String, dynamic>)
+        json['most_recent_inviter'] as Map<String, dynamic>)
     ..status = json['status'] as String;
 }
 
 Map<String, dynamic> _$FeedDirectInboxResponseToJson(
-        FeedDirectInboxResponse instance) =>
+    FeedDirectInboxResponse instance) =>
     <String, dynamic>{
       'inbox': instance.inbox,
       'seq_id': instance.seqId,
@@ -39,9 +39,9 @@ DirectInboxFeedResponseInbox _$DirectInboxFeedResponseInboxFromJson(
   return DirectInboxFeedResponseInbox()
     ..threads = (json['threads'] as List)
         ?.map((e) => e == null
-            ? null
-            : DirectInboxFeedResponseThreadsItem.fromJson(
-                e as Map<String, dynamic>))
+        ? null
+        : DirectInboxFeedResponseThreadsItem.fromJson(
+        e as Map<String, dynamic>))
         ?.toList()
     ..hasOlder = json['has_older'] as bool
     ..unseenCount = json['unseen_count'] as int
@@ -51,7 +51,7 @@ DirectInboxFeedResponseInbox _$DirectInboxFeedResponseInboxFromJson(
 }
 
 Map<String, dynamic> _$DirectInboxFeedResponseInboxToJson(
-        DirectInboxFeedResponseInbox instance) =>
+    DirectInboxFeedResponseInbox instance) =>
     <String, dynamic>{
       'threads': instance.threads,
       'has_older': instance.hasOlder,
@@ -62,8 +62,8 @@ Map<String, dynamic> _$DirectInboxFeedResponseInboxToJson(
     };
 
 DirectInboxFeedResponseMostRecentInviter
-    _$DirectInboxFeedResponseMostRecentInviterFromJson(
-        Map<String, dynamic> json) {
+_$DirectInboxFeedResponseMostRecentInviterFromJson(
+    Map<String, dynamic> json) {
   return DirectInboxFeedResponseMostRecentInviter()
     ..pk = json['pk'] as int
     ..username = json['username'] as String
@@ -73,11 +73,11 @@ DirectInboxFeedResponseMostRecentInviter
     ..profilePicId = json['profile_pic_id'] as String
     ..isVerified = json['is_verified'] as bool
     ..hasAnonymousProfilePicture =
-        json['has_anonymous_profile_picture'] as bool;
+    json['has_anonymous_profile_picture'] as bool;
 }
 
 Map<String, dynamic> _$DirectInboxFeedResponseMostRecentInviterToJson(
-        DirectInboxFeedResponseMostRecentInviter instance) =>
+    DirectInboxFeedResponseMostRecentInviter instance) =>
     <String, dynamic>{
       'pk': instance.pk,
       'username': instance.username,
@@ -96,17 +96,17 @@ DirectInboxFeedResponseThreadsItem _$DirectInboxFeedResponseThreadsItemFromJson(
     ..threadV2Id = json['thread_v2_id'] as String
     ..users = (json['users'] as List)
         ?.map((e) => e == null
-            ? null
-            : DirectInboxFeedResponseUsersItem.fromJson(
-                e as Map<String, dynamic>))
+        ? null
+        : DirectInboxFeedResponseUsersItem.fromJson(
+        e as Map<String, dynamic>))
         ?.toList()
     ..leftUsers = json['left_users'] as List
     ..adminUserIds = json['admin_user_ids'] as List
     ..items = (json['items'] as List)
         ?.map((e) => e == null
-            ? null
-            : DirectInboxFeedResponseItemsItem.fromJson(
-                e as Map<String, dynamic>))
+        ? null
+        : DirectInboxFeedResponseItemsItem.fromJson(
+        e as Map<String, dynamic>))
         ?.toList()
     ..lastActivityAt = json['last_activity_at'] as String
     ..muted = json['muted'] as bool
@@ -127,7 +127,7 @@ DirectInboxFeedResponseThreadsItem _$DirectInboxFeedResponseThreadsItemFromJson(
     ..inviter = json['inviter'] == null
         ? null
         : DirectInboxFeedResponseInviter.fromJson(
-            json['inviter'] as Map<String, dynamic>)
+        json['inviter'] as Map<String, dynamic>)
     ..hasOlder = json['has_older'] as bool
     ..hasNewer = json['has_newer'] as bool
     ..lastSeenAt = json['last_seen_at']
@@ -137,11 +137,11 @@ DirectInboxFeedResponseThreadsItem _$DirectInboxFeedResponseThreadsItemFromJson(
     ..lastPermanentItem = json['last_permanent_item'] == null
         ? null
         : DirectInboxFeedResponseLastPermanentItem.fromJson(
-            json['last_permanent_item'] as Map<String, dynamic>);
+        json['last_permanent_item'] as Map<String, dynamic>);
 }
 
 Map<String, dynamic> _$DirectInboxFeedResponseThreadsItemToJson(
-        DirectInboxFeedResponseThreadsItem instance) =>
+    DirectInboxFeedResponseThreadsItem instance) =>
     <String, dynamic>{
       'thread_id': instance.threadId,
       'thread_v2_id': instance.threadV2Id,
@@ -187,14 +187,14 @@ DirectInboxFeedResponseUsersItem _$DirectInboxFeedResponseUsersItemFromJson(
     ..friendshipStatus = json['friendship_status'] == null
         ? null
         : DirectInboxFeedResponseFriendshipStatus.fromJson(
-            json['friendship_status'] as Map<String, dynamic>)
+        json['friendship_status'] as Map<String, dynamic>)
     ..isVerified = json['is_verified'] as bool
     ..hasAnonymousProfilePicture = json['has_anonymous_profile_picture'] as bool
     ..isDirectappInstalled = json['is_directapp_installed'] as bool;
 }
 
 Map<String, dynamic> _$DirectInboxFeedResponseUsersItemToJson(
-        DirectInboxFeedResponseUsersItem instance) =>
+    DirectInboxFeedResponseUsersItem instance) =>
     <String, dynamic>{
       'pk': instance.pk,
       'username': instance.username,
@@ -219,24 +219,24 @@ DirectInboxFeedResponseItemsItem _$DirectInboxFeedResponseItemsItemFromJson(
     ..link = json['link'] == null
         ? null
         : DirectInboxFeedResponseLink.fromJson(
-            json['link'] as Map<String, dynamic>)
+        json['link'] as Map<String, dynamic>)
     ..clientContext = json['client_context'] as String
     ..reelShare = json['reel_share'] == null
         ? null
         : DirectInboxFeedResponseReelShare.fromJson(
-            json['reel_share'] as Map<String, dynamic>)
+        json['reel_share'] as Map<String, dynamic>)
     ..profile = json['profile'] == null
         ? null
         : DirectInboxFeedResponseProfile.fromJson(
-            json['profile'] as Map<String, dynamic>)
+        json['profile'] as Map<String, dynamic>)
     ..placeholder = json['placeholder'] == null
         ? null
         : DirectInboxFeedResponsePlaceholder.fromJson(
-            json['placeholder'] as Map<String, dynamic>);
+        json['placeholder'] as Map<String, dynamic>);
 }
 
 Map<String, dynamic> _$DirectInboxFeedResponseItemsItemToJson(
-        DirectInboxFeedResponseItemsItem instance) =>
+    DirectInboxFeedResponseItemsItem instance) =>
     <String, dynamic>{
       'item_id': instance.itemId,
       'user_id': instance.userId,
@@ -266,7 +266,7 @@ DirectInboxFeedResponseInviter _$DirectInboxFeedResponseInviterFromJson(
 }
 
 Map<String, dynamic> _$DirectInboxFeedResponseInviterToJson(
-        DirectInboxFeedResponseInviter instance) =>
+    DirectInboxFeedResponseInviter instance) =>
     <String, dynamic>{
       'pk': instance.pk,
       'username': instance.username,
@@ -281,8 +281,8 @@ Map<String, dynamic> _$DirectInboxFeedResponseInviterToJson(
     };
 
 DirectInboxFeedResponseLastPermanentItem
-    _$DirectInboxFeedResponseLastPermanentItemFromJson(
-        Map<String, dynamic> json) {
+_$DirectInboxFeedResponseLastPermanentItemFromJson(
+    Map<String, dynamic> json) {
   return DirectInboxFeedResponseLastPermanentItem()
     ..itemId = json['item_id'] as String
     ..userId = json['user_id'] as int
@@ -292,24 +292,24 @@ DirectInboxFeedResponseLastPermanentItem
     ..link = json['link'] == null
         ? null
         : DirectInboxFeedResponseLink.fromJson(
-            json['link'] as Map<String, dynamic>)
+        json['link'] as Map<String, dynamic>)
     ..clientContext = json['client_context'] as String
     ..reelShare = json['reel_share'] == null
         ? null
         : DirectInboxFeedResponseReelShare.fromJson(
-            json['reel_share'] as Map<String, dynamic>)
+        json['reel_share'] as Map<String, dynamic>)
     ..profile = json['profile'] == null
         ? null
         : DirectInboxFeedResponseProfile.fromJson(
-            json['profile'] as Map<String, dynamic>)
+        json['profile'] as Map<String, dynamic>)
     ..placeholder = json['placeholder'] == null
         ? null
         : DirectInboxFeedResponsePlaceholder.fromJson(
-            json['placeholder'] as Map<String, dynamic>);
+        json['placeholder'] as Map<String, dynamic>);
 }
 
 Map<String, dynamic> _$DirectInboxFeedResponseLastPermanentItemToJson(
-        DirectInboxFeedResponseLastPermanentItem instance) =>
+    DirectInboxFeedResponseLastPermanentItem instance) =>
     <String, dynamic>{
       'item_id': instance.itemId,
       'user_id': instance.userId,
@@ -324,8 +324,8 @@ Map<String, dynamic> _$DirectInboxFeedResponseLastPermanentItemToJson(
     };
 
 DirectInboxFeedResponseFriendshipStatus
-    _$DirectInboxFeedResponseFriendshipStatusFromJson(
-        Map<String, dynamic> json) {
+_$DirectInboxFeedResponseFriendshipStatusFromJson(
+    Map<String, dynamic> json) {
   return DirectInboxFeedResponseFriendshipStatus()
     ..following = json['following'] as bool
     ..blocking = json['blocking'] as bool
@@ -336,7 +336,7 @@ DirectInboxFeedResponseFriendshipStatus
 }
 
 Map<String, dynamic> _$DirectInboxFeedResponseFriendshipStatusToJson(
-        DirectInboxFeedResponseFriendshipStatus instance) =>
+    DirectInboxFeedResponseFriendshipStatus instance) =>
     <String, dynamic>{
       'following': instance.following,
       'blocking': instance.blocking,
@@ -353,13 +353,13 @@ DirectInboxFeedResponseLink _$DirectInboxFeedResponseLinkFromJson(
     ..linkContext = json['link_context'] == null
         ? null
         : DirectInboxFeedResponseLinkContext.fromJson(
-            json['link_context'] as Map<String, dynamic>)
+        json['link_context'] as Map<String, dynamic>)
     ..clientContext = json['client_context'] as String
     ..mutationToken = json['mutation_token'] as String;
 }
 
 Map<String, dynamic> _$DirectInboxFeedResponseLinkToJson(
-        DirectInboxFeedResponseLink instance) =>
+    DirectInboxFeedResponseLink instance) =>
     <String, dynamic>{
       'text': instance.text,
       'link_context': instance.linkContext,
@@ -378,11 +378,11 @@ DirectInboxFeedResponseReelShare _$DirectInboxFeedResponseReelShareFromJson(
     ..media = json['media'] == null
         ? null
         : DirectInboxFeedResponseMedia.fromJson(
-            json['media'] as Map<String, dynamic>);
+        json['media'] as Map<String, dynamic>);
 }
 
 Map<String, dynamic> _$DirectInboxFeedResponseReelShareToJson(
-        DirectInboxFeedResponseReelShare instance) =>
+    DirectInboxFeedResponseReelShare instance) =>
     <String, dynamic>{
       'text': instance.text,
       'type': instance.type,
@@ -403,11 +403,11 @@ DirectInboxFeedResponseProfile _$DirectInboxFeedResponseProfileFromJson(
     ..profilePicId = json['profile_pic_id'] as String
     ..isVerified = json['is_verified'] as bool
     ..hasAnonymousProfilePicture =
-        json['has_anonymous_profile_picture'] as bool;
+    json['has_anonymous_profile_picture'] as bool;
 }
 
 Map<String, dynamic> _$DirectInboxFeedResponseProfileToJson(
-        DirectInboxFeedResponseProfile instance) =>
+    DirectInboxFeedResponseProfile instance) =>
     <String, dynamic>{
       'pk': instance.pk,
       'username': instance.username,
@@ -428,7 +428,7 @@ DirectInboxFeedResponsePlaceholder _$DirectInboxFeedResponsePlaceholderFromJson(
 }
 
 Map<String, dynamic> _$DirectInboxFeedResponsePlaceholderToJson(
-        DirectInboxFeedResponsePlaceholder instance) =>
+    DirectInboxFeedResponsePlaceholder instance) =>
     <String, dynamic>{
       'is_linked': instance.isLinked,
       'title': instance.title,
@@ -445,7 +445,7 @@ DirectInboxFeedResponseLinkContext _$DirectInboxFeedResponseLinkContextFromJson(
 }
 
 Map<String, dynamic> _$DirectInboxFeedResponseLinkContextToJson(
-        DirectInboxFeedResponseLinkContext instance) =>
+    DirectInboxFeedResponseLinkContext instance) =>
     <String, dynamic>{
       'link_url': instance.linkUrl,
       'link_title': instance.linkTitle,
@@ -459,12 +459,12 @@ DirectInboxFeedResponseMedia _$DirectInboxFeedResponseMediaFromJson(
     ..user = json['user'] == null
         ? null
         : DirectInboxFeedResponseUser.fromJson(
-            json['user'] as Map<String, dynamic>)
+        json['user'] as Map<String, dynamic>)
     ..expiringAt = json['expiring_at'] as num;
 }
 
 Map<String, dynamic> _$DirectInboxFeedResponseMediaToJson(
-        DirectInboxFeedResponseMedia instance) =>
+    DirectInboxFeedResponseMedia instance) =>
     <String, dynamic>{
       'user': instance.user,
       'expiring_at': instance.expiringAt,
@@ -481,11 +481,11 @@ DirectInboxFeedResponseUser _$DirectInboxFeedResponseUserFromJson(
     ..profilePicId = json['profile_pic_id'] as String
     ..isVerified = json['is_verified'] as bool
     ..hasAnonymousProfilePicture =
-        json['has_anonymous_profile_picture'] as bool;
+    json['has_anonymous_profile_picture'] as bool;
 }
 
 Map<String, dynamic> _$DirectInboxFeedResponseUserToJson(
-        DirectInboxFeedResponseUser instance) =>
+    DirectInboxFeedResponseUser instance) =>
     <String, dynamic>{
       'pk': instance.pk,
       'username': instance.username,

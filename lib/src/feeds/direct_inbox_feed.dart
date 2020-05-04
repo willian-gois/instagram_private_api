@@ -3,7 +3,7 @@ import 'package:instagram_private_api/src/core/insta_feed.dart';
 import 'package:instagram_private_api/src/responses/feed/direct_inbox_response.dart';
 
 class DirectInboxFeed extends InstaFeed<FeedDirectInboxResponse,
-    FeedDirectInboxResponseInboxThreadsItem> {
+    DirectInboxFeedResponseThreadsItem> {
   String cursor;
   int seqId;
   String path;
@@ -33,7 +33,7 @@ class DirectInboxFeed extends InstaFeed<FeedDirectInboxResponse,
   }
 
   @override
-  List<FeedDirectInboxResponseInboxThreadsItem> transform(
+  List<DirectInboxFeedResponseThreadsItem> transform(
           FeedDirectInboxResponse state) =>
       state.inbox.threads;
 }
