@@ -39,7 +39,7 @@ class InstaFeedFactory {
       DirectThreadFeed(_client, id, cursor, seqId);
 
   DirectThreadFeed directThreadFromInbox(
-          FeedDirectInboxResponseInboxThreadsItem thread,
+          DirectInboxFeedResponseThreadsItem thread,
           [int seqId]) =>
       directThread(
           id: thread.threadId, cursor: thread.oldestCursor, seqId: seqId);
