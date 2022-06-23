@@ -70,7 +70,7 @@ class UploadRepository extends InstaRepository {
     return UploadVideoResponse.fromJson(await client.request.postData(
       '/rupload_igvideo/$entityName',
       query: {
-        'target': client.state.extractCookie('rur'),
+        'target': await client.state.extractCookie('rur'),
       },
       headers: {
         'X_FB_VIDEO_WATERFALL_ID': client.state.generateRandomUuid(),

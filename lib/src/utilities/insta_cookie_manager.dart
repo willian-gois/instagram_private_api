@@ -7,7 +7,6 @@ import 'package:dio/dio.dart';
 import 'insta_cookie.dart';
 
 class InstaCookieManager implements Interceptor {
-
   /// Using this implementation, because Instagram sets a non-standard cookie
 
   /// Cookie manager for http requests。Learn more details about
@@ -34,22 +33,32 @@ class InstaCookieManager implements Interceptor {
   }
 
   @override
-  FutureOr<dynamic> onRequest(RequestOptions options) {
-    final cookies = cookieJar.loadForRequest(options.uri)
+  Future<void> onRequest(RequestOptions options, RequestInterceptorHandler handler) async {
+    final cookies = await cookieJar.loadForRequest(options.uri)
       ..removeWhere((cookie) =>
           cookie.value == invalidCookieValue &&
           cookie.expires.isBefore(DateTime.now()))
-      ..addAll(options.cookies);
+      ..addAll(options.headers.containsKey('Cookie') 
+                ? [Cookie.fromSetCookieValue(options.headers[HttpHeaders.cookieHeader])] 
+                : []);
     final cookie = getCookies(cookies);
 
     if (cookie.isNotEmpty) options.headers[HttpHeaders.cookieHeader] = cookie;
+
+    handler.next(options);
   }
 
   @override
-  FutureOr<dynamic> onResponse(Response response) => _saveCookies(response);
+  void onResponse(Response response, ResponseInterceptorHandler handler) {
+    _saveCookies(response);
+    handler.next(response);
+  }
 
   @override
-  FutureOr<dynamic> onError(DioError err) => _saveCookies(err.response);
+  void onError(DioError err, ErrorInterceptorHandler handler) {
+    _saveCookies(err.response);
+    handler.next(err);
+  }
 
   FutureOr<dynamic> _saveCookies(Response response) {
     if (response != null && response.headers != null) {
@@ -62,7 +71,7 @@ class InstaCookieManager implements Interceptor {
             ..addAll(_cookies);
         }
         cookieJar.saveFromResponse(
-          response.request.uri,
+          response.requestOptions.uri,
           cookies.map((str) => InstaCookie.fromSetCookieValue(str)).toList(),
         );
       }

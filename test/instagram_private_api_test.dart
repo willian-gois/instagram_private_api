@@ -2,30 +2,14 @@ import 'dart:async';
 import 'dart:convert';
 import 'dart:io';
 
-import 'package:image/image.dart';
 import 'package:instagram_private_api/instagram_private_api.dart';
 import 'package:instagram_private_api/src/core/insta_state.dart';
-import 'package:instagram_private_api/src/responses/direct/get_presence_response.dart';
-import 'package:instagram_private_api/src/types/stickers/chat_sticker.dart';
-import 'package:instagram_private_api/src/types/stickers/countdown_sticker.dart';
-import 'package:instagram_private_api/src/types/stickers/hashtag_sticker.dart';
-import 'package:instagram_private_api/src/types/stickers/insta_sticker.dart';
-import 'package:instagram_private_api/src/types/stickers/location_sticker.dart';
-import 'package:instagram_private_api/src/types/stickers/mention_sticker.dart';
-import 'package:instagram_private_api/src/types/stickers/poll_sticker.dart';
-import 'package:instagram_private_api/src/types/stickers/question_sticker.dart';
-import 'package:instagram_private_api/src/types/stickers/quiz_sticker.dart';
-import 'package:instagram_private_api/src/types/stickers/slider_sticker.dart';
 import 'package:instagram_private_api/src/utilities/response_interceptor.dart';
-import 'package:instagram_private_api/src/utilities/time.dart';
-import 'package:instagram_private_api/src/utilities/video_utility.dart';
-
-import 'create_response.dart';
 
 Future<void> main() async {
   final env = Platform.environment;
-  final username = env['IG_USERNAME'];
-  final password = env['IG_PASSWORD'];
+  final username = env['IG-USERNAME'];
+  final password = env['IG-PASSWORD'];
 
   final StateStorage storage = FileStateStorage(username, 'test/state');
   final bool storageExists = await storage.exists();

@@ -4,7 +4,7 @@ import 'package:instagram_private_api/src/repositories/insta_repository.dart';
 class AccountRepository extends InstaRepository {
   AccountRepository(InstaClient client) : super(client);
 
-  Future<dynamic> login(String user, String password) =>
+  Future<dynamic> login(String user, String password) async =>
       client.request.post('/api/v1/accounts/login/',
           form: client.request.sign({
             'username': user,
@@ -13,7 +13,7 @@ class AccountRepository extends InstaRepository {
             'phone_id': client.state.device.phoneId,
             'device_id': client.state.device.deviceId,
             'adid': client.state.device.adid,
-            '_csrftoken': client.state.cookieCsrfToken,
+            '_csrftoken': await client.state.cookieCsrfToken,
             'google_tokens': '[]',
             'login_attempt_count': 0,
             'country_codes':

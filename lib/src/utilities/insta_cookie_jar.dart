@@ -69,7 +69,7 @@ class InstaCookieJar implements CookieJar {
   get domains => _domains;
 
   @override
-  List<Cookie> loadForRequest(Uri uri) {
+  Future<List<Cookie>> loadForRequest(Uri uri) {
     final List<Cookie> list = <Cookie>[];
     final String urlPath = uri.path.isEmpty ? '/' : uri.path;
     // Load cookies without "domain" attribute, include port.
@@ -110,11 +110,11 @@ class InstaCookieJar implements CookieJar {
         });
       }
     });
-    return list;
+    return Future.value(list);
   }
 
   @override
-  void saveFromResponse(Uri uri, List<Cookie> cookies) {
+  Future<void> saveFromResponse(Uri uri, List<Cookie> cookies) async {
     for (final Cookie cookie in cookies) {
       String domain = cookie.domain;
       String path;
@@ -151,7 +151,8 @@ class InstaCookieJar implements CookieJar {
   /// for the `uri.host`, it will ignored the `uri.path`.
   ///
   /// [withDomainSharedCookie] `true` will delete the domain-shared cookies.
-  void delete(Uri uri, [bool withDomainSharedCookie = false]) {
+  @override
+  Future<void> delete(Uri uri, [bool withDomainSharedCookie = false]) async {
     final String host = uri.host;
     domains[1].remove(host);
     if (withDomainSharedCookie) {
@@ -160,7 +161,8 @@ class InstaCookieJar implements CookieJar {
   }
 
   /// Delete all cookies in RAM
-  void deleteAll() {
+  @override
+  Future<void> deleteAll() async {
     domains[0].clear();
     domains[1].clear();
   }

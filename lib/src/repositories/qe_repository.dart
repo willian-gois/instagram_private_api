@@ -18,6 +18,6 @@ class QeRepository extends InstaRepository {
   Future<QeSyncResponse> syncLoginExperiments() =>
       _sync(client.state.device.uuid, client.state.loginExperiments);
 
-  Future<QeSyncResponse> syncExperiments() =>
-      _sync(client.state.cookieUserId, client.state.experiments);
+  Future<QeSyncResponse> syncExperiments() async =>
+      _sync(await client.state.cookieUserId, client.state.experiments);
 }

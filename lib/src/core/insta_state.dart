@@ -85,11 +85,11 @@ class InstaState {
       // ignore: lines_longer_than_80_chars
       'android-${HEX.encode(Iterable.generate(8).map((_) => _seededRandom.nextInt(255)).toList())}');
 
-  String get cookieCsrfToken => extractCookie('csrftoken', orElse: 'missing');
-  String get cookieUserId => extractCookie('ds_user_id');
+  Future<String> get cookieCsrfToken => extractCookie('csrftoken', orElse: 'missing');
+  Future<String> get cookieUserId => extractCookie('ds_user_id');
 
-  String extractCookie(String name, {String orElse}) => cookies
-      .loadForRequest(Uri.parse(igBaseUrl))
+  Future<String> extractCookie(String name, {String orElse}) async => (await cookies
+      .loadForRequest(Uri.parse(igBaseUrl)))
       .firstWhere((cookie) => cookie.name == name,
           orElse: () => Cookie('', orElse))
       .value;
